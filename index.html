@@ -27,11 +27,27 @@
     }
     p{font-size:20px; max-width:600px; margin-top:16px; opacity:.9}
 
+    /* Special team note highlight */
     .note{
-      font-size:18px;
       margin-top:40px;
-      opacity:0.85;
-      font-style:italic;
+      padding:14px 24px;
+      border:2px solid transparent;
+      border-radius:16px;
+      font-size:18px;
+      font-weight:600;
+      background:linear-gradient(#191b3a,#191b3a) padding-box,
+                 linear-gradient(90deg,var(--accent),var(--accent2),var(--pink)) border-box;
+      color:#fff;
+      text-shadow:0 0 8px rgba(255,255,255,0.25);
+      box-shadow:0 0 20px rgba(155,92,255,0.3);
+      max-width:600px;
+    }
+    .note span{
+      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--pink));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+      font-weight:800;
     }
 
     /* Balloons */
@@ -51,9 +67,9 @@
   <h1 class="gradient-text">Happy Birthday, Shiv Kumar! 🎂🎉</h1>
   <p>Wishing you a year filled with happiness, success, and inspiration. You truly make a difference every day!</p>
 
-  <!-- Special Note -->
+  <!-- Special Note Highlight -->
   <div class="note">
-    From your team, with lots of respect and warm wishes ❤
+    From <span>Mansoor Shaik</span>, with lots of respect and warm wishes ❤
   </div>
 
   <!-- Background music -->
