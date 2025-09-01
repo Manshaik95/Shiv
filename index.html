@@ -1,241 +1,85 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Happy Birthday, Shiv Kumar! 🎉</title>
   <meta name="description" content="A delightful birthday greeting webpage for Team Lead Shiv Kumar" />
-  <meta property="og:title" content="Happy Birthday, Shiv Kumar! 🎉" />
-  <meta property="og:description" content="With balloons, confetti, and a heartfelt wish from the team." />
-  <meta property="og:type" content="website" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg1:#0f1020; --bg2:#191b3a; --accent:#9b5cff; --accent2:#00e0ff; --gold:#ffd166; --pink:#ff6ace; --green:#70e000;
+      --bg1:#0f1020; --bg2:#191b3a; --accent:#9b5cff; --accent2:#00e0ff; --pink:#ff6ace;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%;}
     body{
-      margin:0;
-      font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
-      color:#fff;
+      margin:0; height:100vh;
+      font-family:'Poppins',sans-serif; color:#fff;
       background: radial-gradient(1200px 800px at 10% 10%, rgba(155,92,255,.15), transparent 60%),
                   radial-gradient(900px 600px at 90% 20%, rgba(0,224,255,.15), transparent 60%),
                   radial-gradient(1000px 700px at 50% 110%, rgba(255,106,206,.15), transparent 60%),
                   linear-gradient(135deg,var(--bg1),var(--bg2));
-      overflow-x:hidden;
+      overflow:hidden; text-align:center; display:flex; flex-direction:column; justify-content:center; align-items:center;
     }
-    .wrap{min-height:100%; display:flex; flex-direction:column;}
-    header{
-      position:relative; padding:40px 20px 20px; text-align:center;
-    }
-    .badge{
-      display:inline-block; padding:6px 12px; border-radius:999px; background:rgba(255,255,255,.1);
-      border:1px solid rgba(255,255,255,.2); backdrop-filter: blur(6px); font-size:14px;
-    }
-    h1{font-size: clamp(36px, 6vw, 68px); margin:18px 0 8px; line-height:1.05;}
+    h1{font-size: clamp(36px, 6vw, 68px); margin:0; line-height:1.1;}
     .gradient-text{
       background: linear-gradient(90deg, var(--accent), var(--accent2), var(--pink));
       -webkit-background-clip:text; background-clip:text; color:transparent;
       text-shadow: 0 4px 24px rgba(0,224,255,.15);
     }
-    .subtitle{opacity:.9; font-size: clamp(16px, 2.5vw, 20px)}.card{
-  position:relative; margin:24px auto; max-width:960px; padding:28px; border-radius:24px;
-  background: rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.15); backdrop-filter: blur(8px);
-  box-shadow: 0 10px 40px rgba(0,0,0,.35);
-}
-.grid{display:grid; gap:18px; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); align-items:stretch}
+    p{font-size:20px; max-width:600px; margin-top:16px; opacity:.9}
 
-.wish{
-  font-size: clamp(18px, 2.6vw, 22px); line-height:1.6; opacity:.95;
-}
-.signature{margin-top:12px; opacity:.8; font-style:italic}
+    .note{
+      font-size:18px;
+      margin-top:40px;
+      opacity:0.85;
+      font-style:italic;
+    }
 
-.actions{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:22px 0 8px}
-button, .link-btn{
-  appearance:none; border:none; cursor:pointer; padding:12px 18px; border-radius:14px; font-weight:600;
-  background:linear-gradient(135deg,var(--accent),var(--accent2)); color:#0b0b14;
-  box-shadow: 0 10px 24px rgba(0,224,255,.25), inset 0 0 0 1px rgba(255,255,255,.15);
-  transition: transform .15s ease, box-shadow .2s ease, filter .2s ease;
-}
-button:hover, .link-btn:hover{ transform: translateY(-2px); filter:brightness(1.05) }
-.ghost{ background: rgba(255,255,255,.08); color:#fff; box-shadow: inset 0 0 0 1px rgba(255,255,255,.18)}
-
-footer{ text-align:center; padding:26px; opacity:.7; font-size:14px}
-
-/* Balloons */
-.balloon{ position:absolute; width:60px; height:80px; border-radius:50% 50% 45% 55% / 55% 55% 45% 45%;
-  box-shadow: inset -6px -10px 18px rgba(0,0,0,.2); opacity:.85; animation: floatUp linear infinite;}
-.balloon::after{ content:""; position:absolute; left:50%; top:78px; width:2px; height:120px; background:rgba(255,255,255,.35)}
-@keyframes floatUp{
-  0%{ transform: translateY(40vh) translateX(0) rotate(2deg)}
-  100%{ transform: translateY(-120vh) translateX(0) rotate(-6deg)}
-}
-.balloons{ position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:0 }
-
-/* Confetti Canvas */
-#confetti{ position:fixed; inset:0; pointer-events:none; z-index:2 }
-
-/* Overlay glow ring */
-.glow{ position:absolute; inset:-2px; border-radius:inherit; background:
-  radial-gradient(600px 120px at 50% -10%, rgba(255,255,255,.25), transparent 60%),
-  radial-gradient(120px 400px at -5% 50%, rgba(155,92,255,.15), transparent 60%),
-  radial-gradient(120px 400px at 105% 50%, rgba(0,224,255,.15), transparent 60%);
-  z-index:0; filter: blur(18px); opacity:.7 }
-
-.hidden{display:none}
-
+    /* Balloons */
+    .balloon{ position:absolute; width:60px; height:80px; border-radius:50%;
+      box-shadow: inset -6px -10px 18px rgba(0,0,0,.2); opacity:.85; animation: floatUp linear infinite;}
+    .balloon::after{ content:""; position:absolute; left:50%; top:78px; width:2px; height:120px; background:rgba(255,255,255,.35)}
+    @keyframes floatUp{
+      0%{ transform: translateY(100vh) }
+      100%{ transform: translateY(-120vh) }
+    }
+    .balloons{ position:fixed; inset:0; pointer-events:none; overflow:hidden; z-index:0 }
   </style>
 </head>
 <body>
-  <canvas id="confetti"></canvas>
-  <div class="balloons" id="balloons"></div>  <div class="wrap">
-    <header>
-      <span class="badge">With love from the team 💙</span>
-      <h1 class="gradient-text">Happy Birthday, <span id="name">Shiv Kumar</span>! 🎂🎉</h1>
-      <p class="subtitle">Wishing you a year filled with great health, big wins, and endless smiles. You inspire us every day.</p>
-    </header><main class="card">
-  <div class="glow"></div>
-  <div class="grid">
-    <section>
-      <h2 style="margin:0 0 10px;font-size:22px">A Note From Us</h2>
-      <p class="wish">
-        Dear Shiv Kumar, thank you for your guidance, patience, and the way you bring out the best in each of us. May your day be as
-        fantastic as the impact you create. Here's to more milestones and memorable moments together! 🥳
-      </p>
-      <p class="signature">— Your Team</p>
-    </section>
-    <section>
-      <h2 style="margin:0 0 10px;font-size:22px">Customize</h2>
-      <label style="display:block;margin-bottom:8px;font-size:14px;opacity:.85">Change name</label>
-      <input id="nameInput" type="text" placeholder="Shiv Kumar" value="Shiv Kumar" style="width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.07);color:#fff;outline:none">
-      <div class="actions">
-        <button id="party">Launch Confetti 🎊</button>
-        <button id="musicBtn" class="ghost">Play Music ♪</button>
-        <a class="link-btn ghost" id="saveImage">Save as Image 📷</a>
-      </div>
-      <audio id="song" preload="auto">
-        <source src="R:\Shared fiels from OS\Downloads\song.mp3" type="audio/mpeg">
-      </audio>
-    </section>
+  <div class="balloons" id="balloons"></div>
+
+  <h1 class="gradient-text">Happy Birthday, Shiv Kumar! 🎂🎉</h1>
+  <p>Wishing you a year filled with happiness, success, and inspiration. You truly make a difference every day!</p>
+
+  <!-- Special Note -->
+  <div class="note">
+    From your team, with lots of respect and warm wishes ❤
   </div>
-</main>
 
-<footer>
-  Made with ✨ & appreciation — <span style="opacity:.9">Team</span>
-</footer>
+  <!-- Background music -->
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_28a8a2a5d2.mp3" type="audio/mpeg">
+  </audio>
 
-  </div>  <script>
-    // ==== Update name live
-    const nameEl = document.getElementById('name');
-    const nameInput = document.getElementById('nameInput');
-    nameInput.addEventListener('input', () => nameEl.textContent = nameInput.value || 'Shiv Kumar');
-
+  <script>
     // ==== Balloons generator
     const colors = ['#ff6ace','#9b5cff','#00e0ff','#ffd166','#70e000','#ff9f1c'];
     const balloonsContainer = document.getElementById('balloons');
-    function spawnBalloons(count=18){
-      const w = window.innerWidth; const h = window.innerHeight;
-      for(let i=0;i<count;i++){
-        const b = document.createElement('div');
-        b.className = 'balloon';
-        const size = 40 + Math.random()*40;
-        b.style.width = size+'px'; b.style.height = size*1.25+'px';
-        b.style.left = Math.random()*w+'px';
-        const clr = colors[(Math.random()*colors.length)|0];
-        b.style.background = radial-gradient(circle at 30% 30%, rgba(255,255,255,.8), ${clr});
-        const duration = 10 + Math.random()*12;
-        b.style.animationDuration = duration+'s';
-        b.style.animationDelay = (-Math.random()*duration)+'s';
-        balloonsContainer.appendChild(b);
-      }
+    function spawnBalloon(){
+      const b = document.createElement('div');
+      b.className = 'balloon';
+      const size = 40 + Math.random()*50;
+      b.style.width = size+'px'; b.style.height = size*1.3+'px';
+      b.style.left = Math.random()*window.innerWidth+'px';
+      const clr = colors[(Math.random()*colors.length)|0];
+      b.style.background = radial-gradient(circle at 30% 30%, rgba(255,255,255,.8), ${clr});
+      const duration = 8 + Math.random()*12;
+      b.style.animationDuration = duration+'s';
+      b.style.animationDelay = (-Math.random()*duration)+'s';
+      balloonsContainer.appendChild(b);
+      setTimeout(()=>b.remove(), duration*1000+2000);
     }
-    spawnBalloons(24);
-
-    // ==== Confetti
-    const canvas = document.getElementById('confetti');
-    const ctx = canvas.getContext('2d');
-    let confettiPieces = []; let rafId;
-    function resize(){ canvas.width = innerWidth; canvas.height = innerHeight }
-    window.addEventListener('resize', resize); resize();
-
-    function createConfetti(count=220){
-      confettiPieces = Array.from({length:count}).map(()=>({
-        x: Math.random()*canvas.width,
-        y: -20 - Math.random()*canvas.height,
-        r: 4+Math.random()*6,
-        tilt: Math.random()*10,
-        speed: 1.5+Math.random()*3.5,
-        rot: Math.random()*Math.PI*2,
-        color: colors[(Math.random()*colors.length)|0]
-      }));
-    }
-
-    function draw(){
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      confettiPieces.forEach(p=>{
-        p.y += p.speed; p.rot += 0.06; p.tilt = Math.sin(p.rot)*8;
-        ctx.save();
-        ctx.translate(p.x + p.tilt, p.y);
-        ctx.rotate(p.rot);
-        ctx.fillStyle = p.color;
-        ctx.fillRect(-p.r, -p.r, p.r*2, p.r*2);
-        ctx.restore();
-        if(p.y > canvas.height+30) p.y = -20;
-      });
-      rafId = requestAnimationFrame(draw);
-    }
-
-    function burst(){
-      cancelAnimationFrame(rafId);
-      createConfetti();
-      draw();
-      // Auto stop after 8s to save CPU
-      setTimeout(()=> cancelAnimationFrame(rafId), 8000);
-    }
-
-    document.getElementById('party').addEventListener('click', burst);
-    // auto burst once after load
-    setTimeout(burst, 800);
-
-    // ==== Music toggle
-    const song = document.getElementById('song');
-    const musicBtn = document.getElementById('musicBtn');
-    let playing=false;
-    musicBtn.addEventListener('click', async ()=>{
-      try{
-        if(!playing){ await song.play(); playing=true; musicBtn.textContent='Pause Music ⏸'; }
-        else { song.pause(); playing=false; musicBtn.textContent='Play Music ♪'; }
-      }catch(e){ alert('Autoplay is blocked by your browser. Tap again to play.'); }
-    });
-
-    // ==== Save as Image
-    // Lightweight DOM-to-image using SVG foreignObject
-    const saveBtn = document.getElementById('saveImage');
-    saveBtn.addEventListener('click', async ()=>{
-      const el = document.querySelector('.card');
-      const rect = el.getBoundingClientRect();
-      const svg = <?xml version="1.0" standalone="no"?>\n+
-        <svg xmlns="http://www.w3.org/2000/svg" width="${rect.width}" height="${rect.height}">+
-        <foreignObject width="100%" height="100%">+
-        new XMLSerializer().serializeToString(el) +
-        </foreignObject></svg>;
-      const img = new Image();
-      const svgBlob = new Blob([svg], {type:'image/svg+xml;charset=utf-8'});
-      const url = URL.createObjectURL(svgBlob);
-      img.onload = ()=>{
-        const c = document.createElement('canvas'); c.width = rect.width; c.height = rect.height;
-        const cctx = c.getContext('2d'); cctx.drawImage(img,0,0);
-        URL.revokeObjectURL(url);
-        c.toBlob((blob)=>{
-          const a = document.createElement('a');
-          a.href = URL.createObjectURL(blob);
-          a.download = Happy-Birthday-${(nameEl.textContent||'Shiv-Kumar').replace(/\s+/g,'_')}.png;
-          a.click();
-        });
-      };
-      img.src = url;
-    });
-  </script></body>
+    setInterval(spawnBalloon, 500);
+  </script>
+</body>
 </html>
